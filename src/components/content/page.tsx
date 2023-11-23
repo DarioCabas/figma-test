@@ -72,8 +72,8 @@ export default function SimpleContainer() {
       </Box>
       <Box width='100%' sx={{ bgcolor: 'white' }}>
         <Container maxWidth="xl" sx={{ p: 2 }}>
-          <Grid container sx={{ backgroundColor: '#FAFAFA' }} spacing={4}>
-            <Grid container item xs={12} sm={6} md={6} spacing={2}>
+          <Grid container sx={{ backgroundColor: '#FAFAFA' }} spacing={{ xs: 0, md: 2 }}>
+            {!isSmallScreen && <Grid container item xs={12} sm={6} md={6} spacing={2}>
               <Grid item md={12} xs={12} sm={12}>
                 <img src='/image4.png' width="100%" />
               </Grid>
@@ -108,7 +108,7 @@ export default function SimpleContainer() {
                   </CardContent>
                 </Card>
               </Grid>
-            </Grid>
+            </Grid>}
             <Grid item xs={12} md={6} sm={6}>
               <Stack>
                 <Typography variant="h3" color="black" justifyContent="left">
@@ -118,35 +118,43 @@ export default function SimpleContainer() {
               <Stack sx={{ mt: 6 }}>
                 <Stack
                   direction="row"
-                  spacing={2}
+                  spacing={3}
                 >
-                  <img src="/image2.png" width="20%" />
-                  <Stack width={'70%'} >
-                    <Stack direction="row">
-                      <Typography variant='h6' color={'black'}>Clarifon Air Ionizer</Typography>
+                  <Box>
+                    <img src="/image2.png" height="100%" />
+                  </Box>
+                  <Stack alignContent="center" justifyContent="center" >
+                    <Stack direction="row" spacing={3} alignContent="center" justifyContent="center" alignItems="center">
+                      <Typography sx={{ fontSize: { xs: 12, md: 17 } }} color={'black'}>Clarifon Air Ionizer</Typography>
                       <Box flexGrow={1} />
-                      <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                        <Typography variant='subtitle1' color={'#969696'} sx={{ textDecorationLine: 'line-through', mr: 2 }}>$180</Typography>
-                        <Typography variant='subtitle1' color={'#2C7EF8'} sx={{ mr: 4, fontSize: 20 }}>$84</Typography>
+                      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                        <Typography variant='subtitle1' color={'#969696'} sx={{ textDecorationLine: 'line-through', mr: 2, fontSize: { xs: 12, md: 20 } }}>$180</Typography>
+                        <Typography variant='subtitle1' color={'#2C7EF8'} sx={{ fontSize: { xs: 14, md: 20 } }}>$84</Typography>
                       </Box>
 
                     </Stack>
                     <Stack>
                       <Rating defaultValue={5} readOnly />
                     </Stack>
-                    <Stack direction='row' spacing={2} alignItems="center" sx={{ mt: 2 }}>
+                    <Stack direction='row' spacing={2} alignItems="center" sx={{ mt: 1 }}>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <ellipse cx="7.99996" cy="7.99999" rx="7.99996" ry="7.99999" fill="#E3EEFF" />
                         <ellipse cx="8.05937" cy="8.05902" rx="4.26664" ry="4.26666" fill="#2C7EF8" />
                       </svg>
                       <Typography variant='subtitle1' color={'black'}>12 left in Stock</Typography>
                     </Stack>
-                    <Stack sx={{ mt: 2 }}>
+                    {!isSmallScreen && <Stack sx={{ mt: 0 }}>
                       <Typography variant='subtitle1' color={'black'}>Simply plug a Clarifion into any standard outlet and replace bulky, expensive air purifiers with a simple.</Typography>
-                    </Stack>
+                    </Stack>}
                   </Stack>
+
                 </Stack>
               </Stack>
+
+              {isSmallScreen && <Stack sx={{ mt: 2 }}>
+                <Typography variant='subtitle1' color={'black'}>Simply plug a Clarifion into any standard outlet and replace bulky, expensive air purifiers with a simple.</Typography>
+              </Stack>}
+
               <Stack sx={{ mt: 2 }}>
                 <Stack direction='row' spacing={2} alignItems="center">
                   <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">

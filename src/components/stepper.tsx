@@ -26,11 +26,43 @@ export default function HorizontalNonLinearStepper() {
     <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', p: 2 }} >
 
       {// @ts-ignore
-        <Stepper connector={false} activeStep={2} alternativeLabel={label} s>
+        <Stepper connector={false} activeStep={2} alternativeLabel={label} 
+        sx={{
+          ".Mui-completed .MuiStepIcon-root": {
+            color: "#85BF55",
+          },
+          ".MuiStepConnector-root": {
+            top: 0,
+          },
+          ".MuiStepConnector-root span": {
+            borderColor: "transparent",
+          },
+          ".MuiSvgIcon-root": {
+            borderRadius: "50%",
+            border: "1px solid #1976d2",
+          },
+          ".MuiSvgIcon-root:not(.Mui-completed)": {
+            color: "white",
+          },
+          ".MuiStepIcon-text": {
+            fill: "#1976d2",
+            fontWeight: 500,
+          },
+          ".MuiSvgIcon-root.Mui-active": {
+            color: "#2C7EF8",
+            
+          },
+          ".Mui-active .MuiStepIcon-text": {
+            fill: "white",
+          },
+        }}
+        >
           {steps.map((label, index) => (
             <Step key={label}
+            
             >
-              <StepLabel sx={{ marginRight: { sm: '160px', xs: '10px' } }} color='black' >{label}</StepLabel>
+              <StepLabel sx={{ marginRight: { sm: '160px', xs: '10px' } }} color='black'
+               >{label}</StepLabel>
             </Step>
           ))}
         </Stepper>
